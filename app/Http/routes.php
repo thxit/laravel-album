@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Home
+Route::get('/','StaticPagesController@home')->name('home');
+
+// Albums resource route
+Route::resource('albums','AlbumsController');
+
+//photos resource route
+Route::resource('photos','PhotosController');
