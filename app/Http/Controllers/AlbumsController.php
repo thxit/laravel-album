@@ -38,10 +38,11 @@ class AlbumsController extends Controller
         $album = Album::findOrFail($id);
 
         // get photo data
+        $photos = $album->photos()->orderBy('created_at','desc')->paginate(20);
         // ..
 
         // return
-        return view('albums.show', compact('album'));
+        return view('albums.show', compact(['album','photos']));
     }
 
     // albums information update

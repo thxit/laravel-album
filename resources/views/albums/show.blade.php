@@ -16,7 +16,7 @@
 		<p>{{ $album->intro }}</p>
 
 		<!-- upload photo: pop-up boox button -->
-		<button type="button" class="btn btn-primary">
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadPhoto">>
 			Upload Photo
 		</button>
 		<!-- edit album: pop-up box button -->
@@ -28,6 +28,35 @@
 			Delete Album
 		</button>
 	</div>
+</div>
+
+
+<!-- upload photo: pop-up box-->
+<div class="modal fade" id="uploadPhoto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel"> Upload Phote</h4>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('photos.store') }}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="album_id" value="{{ $album->id }}">
+                    <div class="form-group">
+                        <input type="file" name="photo" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="name" placeholder="Click here to add a title for this photot">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-contrl" name="intro" placeholder="Click here to add an introduction for this photot">
+                    </div>
+                    <button type="submit" class="btn btn-primary" > Upload </button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- edit album: pop-up box button -->
@@ -105,5 +134,25 @@
 
 
 <!-- photo display -->
+<hr>
+<div class="row masonry"><!-- left -->
+    @each('shared.photo',$photos,'photo')
+</div>
+
+{!! $photos->render() !!}
 
 @endsection
+
+
+@section('script')
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script src="https://npmcdn.com/imagesloaded@4.1/imagesloaded.pkgd.min.js"></script>
+<!--Waterfall flow-->
+<script>
+$('.masonry').imagesLoaded(function() {
+    $('.masonry').masonry({
+        itemSelector: '.item'
+    });
+});
+</script>
+@endscript
