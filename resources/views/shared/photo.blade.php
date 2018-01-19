@@ -30,16 +30,16 @@
 						<input type="text" class="form-control" name="name" value="{{ $photo->name }}" placeholder="Click here to add a title to this photo">
 					</div>
 					<div class="form-group">
-						<inpt type="text" class="form-control" name="intro" value="{{ $photo->intro }}" placeholder="Click here to add an introduction to this photo">
-						</div>
-						<button type="submit" class="btn btn-primary">Edit</button>
-						</form>
-						<form action="{{ route('photos.destroy', $photo->is) }}" method="post" style="float:right;position:relative;top:-35px">
-							{{ csrf_field() }}
-							{{ method_field('DELETE') }}
-							<button type="submit" class="btn btn-danger">Delete</button>
-						</form>
+						<input type="text" class="form-control" name="intro" value="{{ $photo->intro }}" placeholder="Click here to add an introduction to this photo">
 					</div>
+					<button type="submit" class="btn btn-primary">Edit</button>
+				</form>
+				<form action="{{ route('photos.destroy', $photo->is) }}" method="post" style="float:right;position:relative;top:-35px">
+					{{ csrf_field() }}
+					{{ method_field('DELETE') }}
+				<button type="submit" class="btn btn-danger">Delete</button>
+				</form>
 				</div>
 			</div>
 		</div>
+	</div>

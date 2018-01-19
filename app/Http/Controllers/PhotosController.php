@@ -47,7 +47,7 @@ class PhotosController extends Controller
         }
 
 
-        public functin update(Request $request, $id)
+        public function update(Request $request, $id)
         {
             // update
             $photo = Photo::findOrFail($id);

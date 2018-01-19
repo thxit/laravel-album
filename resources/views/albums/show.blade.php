@@ -16,7 +16,7 @@
 		<p>{{ $album->intro }}</p>
 
 		<!-- upload photo: pop-up boox button -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadPhoto">>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadPhoto">
 			Upload Photo
 		</button>
 		<!-- edit album: pop-up box button -->
@@ -52,7 +52,7 @@
                     <div class="form-group">
                         <input type="text" class="form-contrl" name="intro" placeholder="Click here to add an introduction for this photot">
                     </div>
-                    <button type="submit" class="btn btn-primary" > Upload </button>
+                    <button type="submit" class="btn btn-primary"> Upload </button>
                 </form>
             </div>
         </div>
@@ -155,4 +155,4 @@ $('.masonry').imagesLoaded(function() {
     });
 });
 </script>
-@endscript
+@endsection
